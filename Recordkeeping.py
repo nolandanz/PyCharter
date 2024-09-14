@@ -175,7 +175,7 @@ def log_flight():
 
             #BEGIN NOLAN CHANGES - WRITING DATA TO MXLOGBOOK
             #Nolan's Functions below
-        def getDiscrep():
+        #def getDiscrep():
         #Function to see if any discrepancy needs to be logged. 
         #If yes, user will write in the discrepancy (freetext)
         #If no, postflight/recordkeeping will continue.
@@ -193,7 +193,7 @@ def log_flight():
 
                 selection = get_num_input(1, 2)
                 if selection == 1:
-                    #User wants to update discrepany in aml table
+                    #User wants to update discrepancy in aml table
                     #We should allow a TEXT input to be added to the table
                     con = sqlite3.connect(f'data/mxlogbooks/fleet.db')
                     cur = con.cursor() 
@@ -223,7 +223,7 @@ def log_flight():
             return ftime
 
         fob = getFuel()
-        getDiscrep()
+        #getDiscrep()
         ftime = getTime()
         print()
         print()

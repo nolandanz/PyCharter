@@ -1,6 +1,7 @@
 #Settings program to modify user data, company data, airports, and aircraft.
 
 import sqlite3
+import os
 from Tools import get_airport_coord
 from Tools import blankspace
 from Tools import get_num_input
@@ -472,6 +473,14 @@ def add_first_aircraft():
             con.commit()
             con.close()
             #Creates the trips db file, adds the aircraft to it and sets it to active.
+            #before we do this, let's also create the schedules and logbooks folders.
+            #This worked well, so let's push our luck and make the mxlogbooks folder too.
+            if not os.path.isdir("data/schedules"):
+                os.makedirs("data/schedules")
+            if not os.path.isdir("data/logbooks"):
+                os.makedirs("data/logbooks")
+            if not os.path.isdir("data/mxlogbooks"):
+                os.makedirs("data/mxlogbooks")
             con = sqlite3.connect('data/schedules/trips.db')
             cur = con.cursor()
             sql = f"CREATE TABLE {tail} ('num' INTEGER, 'isactive' INTEGER)"
