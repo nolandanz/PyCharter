@@ -1,6 +1,7 @@
 #Settings program to modify user data, company data, airports, and aircraft.
 
 import sqlite3
+import os
 from Tools import get_airport_coord
 from Tools import blankspace
 from Tools import get_num_input
